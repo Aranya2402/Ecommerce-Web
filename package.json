@@ -8,7 +8,8 @@
 
     "dev": " set NODE_ENV=development && nodemon .\\backend\\server.js",
     "prod": " set NODE_ENV=production && nodemon .\\backend\\server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seeder": "node backend/utils/seeder.js"
   },
   "author": "Aranya",
   "license": "ISC",
