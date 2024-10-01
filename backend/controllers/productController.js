@@ -25,7 +25,7 @@ exports.getSingleProduct = async(req, res, next) => {
  if(!product) {
   return res.status(404).json({
     success: false,
-    message: "Product no found"
+    message: "Product not found"
   });
  }
 
@@ -33,4 +33,26 @@ exports.getSingleProduct = async(req, res, next) => {
     success:true,
     product
   })
+}
+
+//Update Product
+exports.updateProduct = async (req, res, next) =>{
+  let product = await Product.findById(req,params.id);
+
+  if(!product) {
+    return res.status(404).json({
+      success: false,
+      message: "Product not found"
+    });
+   }
+  
+   product = await Product.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true
+   })
+
+   res.status(200).json({
+    success: true,
+    product 
+   })
 }
